@@ -31,14 +31,16 @@ class BirthdayCake
 
   def candles_status
     if self.lit == true
+      self.lit = false
       return "lit"
     else
+      self.lit = true
       return "blown out"
     end
   end
 
   def greet
-    "Happy #{self.age.ordinalize} Birdday!"
+    "Happy #{self.age.ordinalize} Birthday!"
   end
 
   def sing
@@ -49,21 +51,19 @@ class BirthdayCake
     "Birthday cake with #{self.age} #{candles_status} candles"
   end
 
-  def BirthdayCake.celebrate(age)
-    birthday_cake = Birthdaycake.new(age)
-    puts birthday_cake.greet
-    puts birthday_cake.to_s
+  def celebrate
+    puts greet
+    puts to_s
     puts "Lighting candles..."
-    birthday_cake.light_candles
-    puts birthday_cake.to_s
+    puts to_s
+    candles_status
     puts "Singing happy birthday..."
-    puts birthday_cake.sign
+    puts sing
     puts "Blowing out candles..."
-    birth_cake.blow_out_candles
-    puts birthday_cake.to_s
-
-    birthday_cake
+    candles_status
+    puts to_s
   end
 end
 
-BirthdayCake.celebrate(10)
+birthday_cake = BirthdayCake.new(10)
+birthday_cake.celebrate
